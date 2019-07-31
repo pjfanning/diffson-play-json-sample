@@ -1,6 +1,7 @@
 package com.example
 
 import diffson._
+import diffson.jsonpatch.JsonPatch
 import diffson.lcs._
 import diffson.playJson._
 import diffson.playJson.DiffsonProtocol._
@@ -22,8 +23,13 @@ object DiffsonSample extends App {
                       |  "d": false
                       |}""".stripMargin)
 
+  println("generate diff")
   val diff0 = diff(json1, json2)
-  val pp0 = Json.prettyPrint(Json.toJson(diff0))
-  println(pp0)
+  val jsonPath0 = Json.toJson(diff0)
+  println(Json.prettyPrint(jsonPath0))
 
+  println("apply diff as patch to json1 - should yield same json as json2")
+  val patch0 = jsonPath0.validate[JsonPatch[JsValue]].get
+  val json20 = patch0(json1).get
+  println(Json.prettyPrint(json20))
 }
