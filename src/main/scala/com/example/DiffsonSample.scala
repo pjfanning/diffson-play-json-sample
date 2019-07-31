@@ -1,10 +1,10 @@
 package com.example
 
 import diffson._
-import diffson.lcs._
-import diffson.playJson._
-import diffson.playJson.DiffsonProtocol._
 import diffson.jsonpatch.lcsdiff._
+import diffson.lcs._
+import io.kontainers.diffson.playJson.DiffsonProtocol._
+import io.kontainers.diffson.playJson._
 import play.api.libs.json.{JsValue, Json}
 
 object DiffsonSample extends App {
