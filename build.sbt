@@ -5,5 +5,5 @@ version := "0.1"
 scalaVersion := "2.13.0"
 
 libraryDependencies ++= Seq(
-  "org.gnieh" %% f"diffson-play-json" % "4.0.0-M4"
+  "org.gnieh" %% "diffson-play-json" % "4.0.0-M4"
 )
